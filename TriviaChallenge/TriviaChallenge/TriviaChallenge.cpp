@@ -1,104 +1,60 @@
-// TriviaChallenge.cpp : A Trivia Challenge using arrays.
-//
+// Cpp_Lab_04.cpp : Defines the entry point for the console application.
+// Michael Coyne & Matt Gilmore
 
 #include "stdafx.h"
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
-using namespace std;
+		//#include <cstdlib>
 
-const int rows = 14;
-const int columns = 2;
-int board[rows][columns] = { 0, 0 };
-
-void displayBoard();
+		using namespace std;
 
 
-int main()
+int _tmain(int argc, _TCHAR* argv[])
 {
-	displayBoard();
 
-	/*The number for go first indicates the player that goes first.*/
-	int goFirst = 0;
-	/*Simulates a dice roll.*/
-	int roll = rand() % 6 + 1;
-	char player1 = '1';
-	char player2 = '2';
-	/*This is the gameboard.*/
-	char gameboard[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
-	cout << endl << endl << "This is a trivia challenge for two people!" << endl;
-	getchar();
-	cin.ignore();
-	cout << endl;
+	string player1 = "| Q |";
+	string player2 = "| P |";
+	string empty = "|< >|";
+	int player1loc = 0;
+	int player2loc = 0;
+	string tied = "|QP|";
+	bool correct = NULL;
+	string turn = player1;
+	string board[4] = { tied, "|< >|", "|< >|", "|< >|" };
 
+	void display_board(string board[4]);
+
+	display_board(board);
+
+
+	while (player1loc < 3 && player2loc < 3)
+	{
+		if (correct == true)
+		{
+			if (turn == player1)
+			{
+				board[(player1loc)+1] = turn;
+				board[player1loc] = empty;
+			}
+			else
+			{
+				board[(player2loc)+1] = turn;
+				board[player2loc] = empty;
+			}
+		}
+	}
 	return 0;
 }
-
-void Turn(int roll(), int player1Roll = rand() % 6 + 1, int player2Roll = rand() % 6 + 1, int goFirst = 0)
+void display_board(string board[4])
 {
-	cout << roll << endl;
-	while (goFirst != 1 || 2){
-
-		if (player1Roll > player2Roll)
-		{
-			int goFirst = 1;
-		}
-		else if (player1Roll < player2Roll)
-		{
-			int goFirst = 2;
-		}
-		else
-		{
-			int player1Roll = rand() % 6 + 1;
-			int player2Roll = rand() % 6 + 1;
-		}
-		return;
-	}
+	system("CLS");
+	cout << "===============" << endl;
+	cout << "|<#><#><#><#><#>|" << endl;
+	cout << "|<#>" << board[0] << "<#><#><#>|" << endl;
+	cout << "|<#>" << board[1] << board[2] << board[3] << "<#>|" << endl;
+	cout << "|<#><#><#><#><#>|" << endl;
+	cout << "===============" << endl;
 }
-	void displayBoard()
-	{
 
-		cout << "  1 2" << endl;
-		cout << " -----";
 
-		for (int bRow = 0; bRow<14; bRow++)
-		{
-			cout << "\n ";
-			for (int bCol = 0; bCol< 2; bCol++)
 
-				if (board[bRow][bCol] == 0)
-					cout << ".  ";
-				else
-					cout << ".  ";
-		}
-		cout << endl;
-
-		return;
-	}
-	void Movement(int roll(), char bRow())
-	{
-		srand(time(NULL));
-		int spot = 0;
-		while (spot != 14)
-		{
-			int roll = rand() % 6 + 1;
-			for (int bRow = 0; bRow<14; bRow++)
-			{
-				cout << "\n ";
-				for (int bCol = 0; bCol< 2; bCol++)
-
-					if (board[bRow][bCol] == 0)
-						cout << ".  ";
-					else
-						cout << ".  ";
-			}
-			cout << endl;
-
-			return;
-		}
-		}
-
-		
-	}

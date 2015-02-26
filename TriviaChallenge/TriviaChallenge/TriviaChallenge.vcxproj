@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{69B67E0C-E0AD-434B-B9D1-0F24B0261941}</ProjectGuid>
+    <ProjectGuid>{1AD271FF-213E-48DA-B542-CA575F0859F5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TriviaChallenge</RootNamespace>
   </PropertyGroup>
